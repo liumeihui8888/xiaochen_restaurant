@@ -1,5 +1,6 @@
 package com.c.xiaochen_restaurant.net;
 
+import com.c.xiaochen_restaurant.utils.GsonUtil;
 import com.google.gson.internal.$Gson$Types;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -34,7 +35,7 @@ public abstract class CommonCallBack<T> extends StringCallback {
     }
 
     public abstract void onError(Exception e);
-    public abstract void onSuccess(JSONObject response);
+    public abstract void onSuccess(T response);
 
     @Override
     public void onResponse(String response, int id) {
@@ -42,8 +43,8 @@ public abstract class CommonCallBack<T> extends StringCallback {
             JSONObject resp=new JSONObject(response);
             int resultCode=resp.getInt("resultCode");
             if(resultCode==1){
-//                onSuccess((T) GsonUtil.getGson().fromJson(resp.getString("data"), mtype));
-                onSuccess((resp.getJSONObject("data")));
+                onSuccess((T) GsonUtil.getGson().fromJson(resp.getString("data"), mtype));
+                //onSuccess((resp.getJSONObject("data")));
 
             }
             else {

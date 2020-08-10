@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.c.xiaochen_restaurant.R;
+import com.c.xiaochen_restaurant.UserInfoHolder;
 import com.c.xiaochen_restaurant.bean.User;
 import com.c.xiaochen_restaurant.biz.UserBiz;
 import com.c.xiaochen_restaurant.net.CommonCallBack;
@@ -19,6 +20,7 @@ import com.c.xiaochen_restaurant.utils.T;
 //import com.c.xiaomei_restaurant.UserInfoHolder;
 //import com.c.xiaomei_restaurant.bean.User;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 //import com.zhy.http.okhttp.OkHttpUtils;
 //import com.zhy.http.okhttp.cookie.CookieJarImpl;
@@ -29,6 +31,7 @@ public class LoginActivity extends Activity {
     private Button mBtnLogin;
     private TextView mTvRegister;
     private UserBiz userBiz=new UserBiz();
+    private String username01;
     private static final String KEY_USERNAME = "key_username";
     private static final String KEY_PASSWORD = "key_password";
 
@@ -75,12 +78,12 @@ public class LoginActivity extends Activity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username=mEditUsername.getText().toString();
+                final String username=mEditUsername.getText().toString();
                 String password=mEditPassword.getText().toString();
                 if(TextUtils.isEmpty(username)||TextUtils.isEmpty(password))
 
                 {
-                    T.makeToast(LoginActivity.this,"账号111111或密码不能为空");
+                    T.makeToast(LoginActivity.this,"账号999或密码不能为空");
                     return;
                 }
                // startLoadingProgress();
@@ -95,10 +98,11 @@ public class LoginActivity extends Activity {
                     }
 
                     @Override
-                    public void onSuccess(JSONObject response) {
+                    public void onSuccess(User response) {
                       //  stopLoadingProgress();
                         T.makeToast(LoginActivity.this,"登陆成功");
-                     //   UserInfoHolder.getInstance().setUser(response);
+
+                        UserInfoHolder.getInstance().setUser(response);
                         toOrderActivity();
                         finish();
                     }
@@ -116,12 +120,12 @@ public class LoginActivity extends Activity {
     }
 
     private void toResgisterActivity(){
-   //     Intent intent=new Intent(this, RegisterActivity.class);
-    //    startActivity(intent);
+        Intent intent=new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
     private void toOrderActivity(){
-    //    Intent intent=new Intent(this, OrderActivity.class);
-     //   startActivity(intent);
+        Intent intent=new Intent(this, OrderActivity.class);
+        startActivity(intent);
         finish();
 
     }

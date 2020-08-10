@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f5f7"
+    >
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:id="@+id/id_back"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="8dp"
+        android:id="@+id/id_et_username"
+        android:hint="请输入手机号"
+        android:inputType="text"
+        android:background="@color/white"
+        android:textColorHint="#130c0e"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="8dp"
+        android:id="@+id/id_et_password"
+        android:hint="请输入密码"
+        android:inputType="text"
+        android:background="@color/white"
+        android:textColorHint="#130c0e"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="8dp"
+        android:id="@+id/id_et_repassword"
+        android:hint="请重复输入密码"
+        android:inputType="text"
+        android:background="@color/white"
+        android:textColorHint="#130c0e"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button_large_Black"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:text="提交"
+        android:id="@+id/id_btn_register"
+
+        />
+</LinearLayout>
